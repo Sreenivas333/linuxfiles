@@ -1,0 +1,591 @@
+
+
+Linux - Virtualbox - Vagrant
+========================================================
+
+Devops - DevsecOps - SRE
+=======================================================
+Linux
+
+How can we get linux Server?
+=======================================================
+Install in physcial box
+
+Get a Linux VM in 
+			- Hypervisor
+				- Vmware
+				- Virtualbox
+				- Hyper-v
+				- many more
+			
+			
+			- Cloud  (Manage vm's)
+				- AWS
+				- Azure
+				- GCP
+
+What is Virtualbox?
+- Managing vms
+		- create vm
+		- start a vm
+		- stop a vm
+		- remove vm
+
+What is VM?
+======================================================
+	Virtual machine is nothing but a running copy of boot root user and app filesystem
+
+Physical Server?
+======================================================
+Hardware --> OS --> Hypervisor --> create vms with os images
+
+
+
+
+os image contains
+========================================================
+boot filesystem		Kernel
+root filesystem		what ever we see in over os filesystem
+user filesystem
+app  filesystem
+
+Note:-
+
+the os image is like a static copy this is not running 
+the moment you run that is become vm
+
+
+
+Kernel?
+	The kernel is a computer program at the core of a computer's operating system 
+and generally has complete control over everything in the system.
+
+Kernel
+		namespace    	Create				Allowed		Can
+			user		users				unlimted	unlimted
+			mnt			root filesystem			1		unlimted
+			net			network					1		unlimted
+			pid			pid tree				1		unlimted
+		cgroups
+			for managing cpu+ram for the pid
+		capabilites
+			giving a root/non-root accesss to user 
+
+What is meant by namespace?
+	A namespace is a declarative region that provides a scope 
+to the identifiers (the names of types, functions, variables, etc) inside it
+
+
+class --> Object unlimted
+
+What is filesystem?
+--------------------------
+Collection of files/dir for certain purpose
+
+Types of fs
+---------------------
+boot filesystem		Kernel
+root filesystem		what ever we see in over os filesystem
+user filesystem
+app  filesystem
+
+
+Types of Users
+===================================================================  
+super user or root user or admin user
+
+root
+
+Normal users (create users with root)
+	
+
+system users (create by software) 
+===================================================================
+
+
+Linux Directory/ file Structure
+===================================================================
+
+/ --> root dir/parent dir --> linux
+
+home :- user information
+-----
+	-rajesh
+	-sreenu
+	-lava
+	-dhana
+
+bin :- (Binary) contains binary files 
+----
+mkdir
+ls 
+date
+(each command binary files is there, those are present in bin dir)
+
+sbin :- (system bin) binary files. In sbin root user only have accesss
+----
+shutdown
+useradd
+reboot
+
+etc :- (all the configuration files
+----
+
+sudoers
+passwd
+shadow
+group
+motd (Message of the Day)
+host files
+
+opt :- (Optional)
+----
+In Contains all the 3rd party software installation files
+by default this dir is empty.
+to write any thing in this dir accesss only to root user
+
+lib :- (library)
+----
+It Contains os libraries which are required by our commands and applications
+
+dev :- device
+----
+all Device releatedfiles will be stored inside dev directory.
+
+note:-in linux everything is take as a file that is every device is represented as a file
+
+proc :- Processes
+----
+all the Pid informations
+cpuinfo --> cpu informatioms
+
+var :- variable 
+----
+log files stored inside
+if any data which is keep on changing, such type of date will be stored inside
+
+tmp :- temporary (this only for temporary purpose)
+---
+
+usr:-  user
+----
+contains all user related software
+
+==================================================================
+Step 1- Install Virtualbox
+Step 2- create a vm
+==================================================================
+
+nmtui--> activate a connection -->activate --> back(to activate ip )
+ssh user@ip
+==================================================================
+
+
+Start working on linux (
+==================================================================
+	ping google.com -->to check internet connection(to exit ctrl+c)
+	
+man command (manual or help)
+			
+		absolute path --> start from root dir -->/
+		relative path --> start from current dir 
+===================================================================
+Linux Commands
+===================================================================
+
+Navigation & Directory Control Commands
+----------------------------------------
+
+mkdir (to create dir)
+	optons
+		-v popup message
+		-p	parant(to create multipule dir in dir in dir)
+		-m  giving permission
+rmdir (to remove dir)
+rm		(to remove files)
+ls 
+pwd
+cd (change directory)
+tree (root useer)
+sudo su - (to Switch to root user)
+yum ( install,update & remove packages )
+uname
+
+
+date
+cal(calender)
+
+File Maintenance Commands
+--------------------------
+touch 
+vi
+find
+	find . -type f -empty (find all empty files in the current directory)
+
+locate (yum install mlocate)
+
+files permission
+-----------------
+usmask
+			umask	default file	default dir
+	root	0022	644					755
+	user	0002	664					775
+	
+	
+Base permission for file is 0666
+						(-) 0022
+						---------
+							0644
+							
+Base permission for dir is  0777
+						(-) 0022
+						---------
+							0755
+
+	r -->4
+	w -->2
+	x -->1
+	
+chmod 000 filename
+	-R (to all) Recursive
+
+chown
+chgrp
+
+cp
+mv
+file
+wc
+
+ln
+	- hard link  
+		 ln absolute path file destination path file
+	- soft link
+		 ln -s absolute path file destination path file
+hard link								soft link
+-this link have same properties			-this link have different properties
+-not able to create hl for dir			-can able to create soft link to dir
+-inode number also same					-different inode number		
+if we delete original file	
+	we can access the link				-we can not access to link
+
+
+Text Editor commands
+---------------------
+
+vi
+vim
+	- commandmode
+		:se nu(line number)
+		:108 (go to line number)
+		/word ( show the word )
+		dd 
+	
+nano
+	- 
+		ctrl+o (save content)
+		ctrl+x (quit)
+
+Text Reading/Display Commands
+-----------------------------
+
+echo 
+	(to display message )
+cat  (to display the file content )
+	cat -n (to line numbers(
+head
+	to display first lines we specified or default show first 10 lines
+	ex:- head -n 20 file names
+
+tail
+	to display last lines we specified or default show last 10 lines
+	ex:- tail -n 20 file name
+		 tail -f file name (to show the updated lines or it display last 10 lines)
+	
+
+
+sed
+	sed -n "line number+p" file name (to show the specified line 
+	sed -n "line number start,line number end +p" file name ( range file names )		
+			sed 's/oldword/newword/' ( replace word in 1st columns it show but not change text in file )
+			sed 's/oldword/newword/2' ( replace word in 2nd columns it show but not change text in file )
+			sed 's/oldword/newword/g' ( replace word for globle it show but not change text in file )
+			Sed -i 's/oldword/newword/g' ( replace word for globle it show and change text in file )
+	
+sort
+	cat file | sort (to sort the words in assending order)
+tr [a-z] [A-Z]---> transulate all lowercaps uppercaps
+| (pipe) 
+grep
+	find text and print result
+
+more
+less
+
+System Resources command
+--------------------------
+who
+w
+uptime
+	load average: 1min 5min 15min time intervel
+	load average is not more then 1.0 (notmore the cpu core)
+	how to check cpu cat /proc/cpuinfo
+users
+whoami
+whereis (shoe binary path/location source and manual page 
+which (show only binary file path)
+date(root user)
+df 
+	df -h
+du  
+Hostname
+	hostname -i (show ip of hostuser)
+	hostname name 
+	
+	  
+ifconfig  (show ip )
+	-ip a
+	
+man
+info 
+--help
+whatis mkdir
+	
+service
+	service sn options
+				status|start|stop|restart
+	systemctl list-unit-files (list all service )
+	service (service name)
+
+systemctl options service name
+	systemctl status service name
+			enable
+			disable
+			start
+			stop
+			restart
+
+last
+
+Processes management commands
+-----------------------------
+
+ps (display only current user process id )
+
+	ps -ef (all users process id )
+kill
+top 
+sae
+	itis used to collect the CPU, Memory and I/O usage
+yum install sysstat -y
+
+Archive/Data Backup Commands
+-----------------------------
+
+zip
+	zip -r (file name) (directory or path )
+unzip 
+	unzip filename.zip
+tar
+	tar -cvf (file name) (directory or path )
+	tar -xvf filename.tar
+
+User/Group Administration Commands
+-----------------------------------
+
+useradd username
+	files changes in system if create user
+	home
+		username
+	etc
+		shadow
+		passwd
+		group
+passwd username		
+	password is stored in shadow (/etc/shadow)
+	once password set in shadow !! replace with secret text
+	
+
+ssh -i key user@public ip
+
+
+change username (for passwd life or exper)
+
+groupadd groupname
+
+usermod -g groupname username (add user to group)
+	usermod -L username (lock user)
+	usermod -U username (unlock user)
+lid -g devops (list no.of users ingroup)
+
+id username (display uid,gid& groupname)
+
+su 
+	su -username
+sudo
+	visudo (allow root privilage to user full or same command )
+	
+userdel username(-r) 
+groupdel username
+
+
+Automating / Scheduling Tasks Commands
+-----------------------------------------
+
+corntab ( all users having access ) 
+	to restrict
+		create file corn.allow in etc dir
+		touch  /etc/cron.allow
+crond.service
+	cron --> service
+	tab ---> table
+	crontab -l (list the jobs)
+	crontab -e (edit the jobs)
+	crontab -r  (to delete jobs)
+	
+	open cron.allow add the required user access
+	vi /etc/cron.allow
+	add user in the above dir
+
+
+crontab formate
+	min		hr		dom		m 	dow 	command/script
+	0-59	
+	
+ever min
+	*/1 * * * * filepath 
+
+
+>  redirect standed output
+>> append the standed output
+
+File Descriptors
+-----------------
+0 ---> std i/p
+1 ---> std o/p
+2 ---> std err
+
+createing corntab 
+------------------
+	
+	touch /etc/cron.allow
+	vi /etc/cron.allow  --> add user
+	corntab -e 
+		*/1 * * * * path > filepath 2>&1 (add to file) save and exit
+		:wq
+	corntab -l 
+	
+
+crontab generater is also aviable in online
+
+users crontabs
+
+sudo corntab -l -u username
+
+crontab -ir
+
+Remote Access Commands
+----------------------
+
+ssh -i "key.pem" user@ip
+	
+
+ssh username@ip/hostname (enter password)
+
+git bash
+	try this command
+	ssh username@ip/hostname (enter password)
+	not working
+	vi /etc/ssh/sshd_config (password authentication to yes)
+	now restart the service
+	service sshd restart or systemctl restart sshd
+
+scp (secure copy)
+	copy files from one server to other server
+	
+	scp filename username@iporhostname:path  (file)
+	scp -r filename username@iporhostname:path (dir)
+		note:- username is were the file is present
+			public ip is were the file is copying server
+		example:-
+			scp -r filename (server1)username@(server2)publicip:path(path is server2)
+
+problems
+
+- how to remove section time output
+	
+	in our system not in server
+	vi ~/.ssh/config
+		add the 2 lines
+		Host *
+			ServerAliveInterval 30
+			ServerAliveCountMax 2
+			
+Hardware Information Commands
+-------------------------------
+
+free
+	free -h
+	free -m
+
+dmidecode (give ram information)
+	dmidecode -t 17 (type 17)
+
+vmstat (virtual memory statistics)
+
+Communication commands
+-----------------------
+mail
+	mail emailid
+		subject enter
+		ctrl+d
+		
+	SMPT Server (semple mail tranfer protocol)
+
+other commands
+--------------
+
+clear
+cal
+wget
+	wget url
+curl
+	curl -o filename url
+	it download, access API and allow more protocol
+script
+ping
+telnet 
+	telnet service port
+history
+	history -c (clear)
+uname
+
+netstat 
+	netstat -tulnap
+watch
+	watch -5 date
+restart
+reboot
+shutdown	
+	shutdown -c (to cancle the command )
+13-12-2022
+============================================================================
+
+
+
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+

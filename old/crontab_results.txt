@@ -1,0 +1,120 @@
+#############################################
+current working directory
+/home/centos
+#############################################
+USER
+centos
+#############################################
+Running Ports
+Active Internet connections (servers and established)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name    
+tcp        0      0 0.0.0.0:111             0.0.0.0:*               LISTEN      533/rpcbind         
+tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      1175/sshd           
+tcp        0      0 127.0.0.1:25            0.0.0.0:*               LISTEN      991/master          
+tcp        0      0 172.31.87.170:22        203.192.253.100:40402   ESTABLISHED 14886/sshd: centos  
+tcp        0      0 172.31.87.170:22        203.192.253.100:63083   ESTABLISHED 17146/sshd: centos  
+tcp        0      0 172.31.87.170:22        203.192.253.100:52014   ESTABLISHED 18507/sshd: centos  
+tcp6       0      0 :::111                  :::*                    LISTEN      533/rpcbind         
+tcp6       0      0 :::22                   :::*                    LISTEN      1175/sshd           
+tcp6       0      0 ::1:25                  :::*                    LISTEN      991/master          
+udp        0      0 127.0.0.1:323           0.0.0.0:*                           547/chronyd         
+udp        0      0 0.0.0.0:68              0.0.0.0:*                           816/dhclient        
+udp        0      0 0.0.0.0:111             0.0.0.0:*                           533/rpcbind         
+udp        0      0 0.0.0.0:706             0.0.0.0:*                           533/rpcbind         
+udp6       0      0 ::1:323                 :::*                                547/chronyd         
+udp6       0      0 :::111                  :::*                                533/rpcbind         
+udp6       0      0 :::706                  :::*                                533/rpcbind         
+#############################################
+Checking Memory
+              total        used        free      shared  buff/cache   available
+Mem:           989M        140M        285M         12M        563M        666M
+Swap:            0B          0B          0B
+#############################################
+Calander for Dec 2022
+    December 2022   
+Su Mo Tu We Th Fr Sa
+             1  2  3
+ 4  5  6  7  8  9 10
+11 12 13 14 15 16 17
+18 19 20 21 22 23 24
+25 26 27 28 29 30 31
+
+#############################################
+Hard Disk space
+Filesystem      Size  Used Avail Use% Mounted on
+devtmpfs        470M     0  470M   0% /dev
+tmpfs           495M     0  495M   0% /dev/shm
+tmpfs           495M   13M  482M   3% /run
+tmpfs           495M     0  495M   0% /sys/fs/cgroup
+/dev/xvda1       30G  1.7G   29G   6% /
+tmpfs            99M     0   99M   0% /run/user/1000
+#############################################
+Internet Checking
+PING google.com (172.253.122.100) 56(84) bytes of data.
+64 bytes from bh-in-f100.1e100.net (172.253.122.100): icmp_seq=1 ttl=53 time=1.45 ms
+64 bytes from bh-in-f100.1e100.net (172.253.122.100): icmp_seq=2 ttl=53 time=1.53 ms
+
+--- google.com ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1000ms
+rtt min/avg/max/mdev = 1.450/1.492/1.534/0.042 ms
+#############################################
+#############################################
+current working directory
+/home/centos
+#############################################
+USER
+centos
+#############################################
+Running Ports
+Active Internet connections (servers and established)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name    
+tcp        0      0 0.0.0.0:111             0.0.0.0:*               LISTEN      533/rpcbind         
+tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      1175/sshd           
+tcp        0      0 127.0.0.1:25            0.0.0.0:*               LISTEN      991/master          
+tcp        0      0 172.31.87.170:22        203.192.253.100:40402   ESTABLISHED 14886/sshd: centos  
+tcp        0      0 172.31.87.170:22        203.192.253.100:63083   ESTABLISHED 17146/sshd: centos  
+tcp        0    324 172.31.87.170:22        203.192.253.100:52014   ESTABLISHED 18507/sshd: centos  
+tcp6       0      0 :::111                  :::*                    LISTEN      533/rpcbind         
+tcp6       0      0 :::22                   :::*                    LISTEN      1175/sshd           
+tcp6       0      0 ::1:25                  :::*                    LISTEN      991/master          
+udp        0      0 127.0.0.1:323           0.0.0.0:*                           547/chronyd         
+udp        0      0 0.0.0.0:68              0.0.0.0:*                           816/dhclient        
+udp        0      0 0.0.0.0:111             0.0.0.0:*                           533/rpcbind         
+udp        0      0 0.0.0.0:706             0.0.0.0:*                           533/rpcbind         
+udp6       0      0 ::1:323                 :::*                                547/chronyd         
+udp6       0      0 :::111                  :::*                                533/rpcbind         
+udp6       0      0 :::706                  :::*                                533/rpcbind         
+#############################################
+Checking Memory
+              total        used        free      shared  buff/cache   available
+Mem:           989M        140M        286M         12M        563M        667M
+Swap:            0B          0B          0B
+#############################################
+Calander for Dec 2022
+    December 2022   
+Su Mo Tu We Th Fr Sa
+             1  2  3
+ 4  5  6  7  8  9 10
+11 12 13 14 15 16 17
+18 19 20 21 22 23 24
+25 26 27 28 29 30 31
+
+#############################################
+Hard Disk space
+Filesystem      Size  Used Avail Use% Mounted on
+devtmpfs        470M     0  470M   0% /dev
+tmpfs           495M     0  495M   0% /dev/shm
+tmpfs           495M   13M  482M   3% /run
+tmpfs           495M     0  495M   0% /sys/fs/cgroup
+/dev/xvda1       30G  1.7G   29G   6% /
+tmpfs            99M     0   99M   0% /run/user/1000
+#############################################
+Internet Checking
+PING google.com (172.253.122.139) 56(84) bytes of data.
+64 bytes from bh-in-f139.1e100.net (172.253.122.139): icmp_seq=1 ttl=49 time=1.81 ms
+64 bytes from bh-in-f139.1e100.net (172.253.122.139): icmp_seq=2 ttl=49 time=1.84 ms
+
+--- google.com ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1001ms
+rtt min/avg/max/mdev = 1.811/1.829/1.848/0.046 ms
+#############################################
